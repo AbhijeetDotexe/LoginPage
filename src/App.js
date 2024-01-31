@@ -1,14 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './components/Login';
-import Validation from './components/Validation';
-import { Formik } from "formik";
-import * as Yup from "yup";
+import "./App.css";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Validation/>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/navbar" element={<Navbar />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
