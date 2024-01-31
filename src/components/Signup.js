@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.css";
+import Navbar from "./Navbar";
 const schema = Yup.object().shape({
   email: Yup.string()
     .required("Email is required to login")
@@ -15,6 +16,7 @@ function Signup() {
   return (
     <div>
       <>
+      <Navbar/>
         <Formik
           validationSchema={schema}
           initialValues={{
@@ -30,11 +32,27 @@ function Signup() {
             handleSubmit
           }) => (
             <div className="login">
-              <div className="form-group card m-4 p-3">
+              <div className="form-group card m-5 p-3 w-50">
                 <form validate="true" onSubmit={handleSubmit}>
                   <span className="display-3 d-flex justify-content-center">
                     Sign up
                   </span>
+                  <input
+                    type="text"
+                    name="first_name"
+                    // value={values.email}
+                    placeholder="Enter your First Name"
+                    className="form-control inp_txt m-2 p-2"
+                    id="name"
+                  ></input>
+                  <input
+                    type="text"
+                    name="last_name"
+                    // value={values.email}
+                    placeholder="Enter your Last Name"
+                    className="form-control inp_txt m-2 p-2"
+                    id="name"
+                  ></input>
                   <input
                     type="email"
                     name="email"

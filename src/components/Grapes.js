@@ -1,34 +1,30 @@
 import React, { useEffect } from "react";
 import grapesjs from "grapesjs";
 import "bootstrap/dist/css/bootstrap.css";
+import "../grapes.css"
+import 'grapesjs/dist/css/grapes.min.css';
+
 
 function Grapes() {
   useEffect(() => {
     const editor = grapesjs.init({
-      container: "#gjs",
+      container: "#gjs", 
       fromElement: true,
-      height: "300px",
-      width: "auto",
+      height: "90vh", 
+      width: "90%", 
       storageManager: false,
       panels: {
         defaults: [],
       },
     });
 
-    // You can perform additional setup or cleanup here if needed
-
-    // Don't forget to destroy the editor when the component unmounts
-    return () => {
-      editor.destroy();
-    };
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []); 
 
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <div id="gjs">
-          <h1>Hello World Component</h1>
-        </div>
+      <div >
+      <div id="gjs" className="d-flex justify-content-center">
+      </div>
       </div>
     </>
   );
