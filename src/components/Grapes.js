@@ -21,12 +21,9 @@ function Grapes() {
   }, []); 
 
   return (
-    <>
-      <div >
-      <div id="gjs" className="d-flex justify-content-center">
+      <div id="gjs">
+        <p>this is just for testing</p>
       </div>
-      </div>
-    </>
   );
 }
 
