@@ -9,6 +9,7 @@ const schema = Yup.object().shape({
   last_name: Yup.string().required("Last Name is required"),
   email: Yup.string().required("Email is required to login").email("Invalid Email Format"),
   password: Yup.string().required("Password is required to sign in").min(8, "Minimum 8 Characters are required for Password"),
+  confirm_password: Yup.string().required("Password is required to sign in").min(8, "Minimum 8 Characters are required for Password"),
 });
 
 function Signup() {
@@ -17,6 +18,7 @@ function Signup() {
     last_name: "",
     email: "",
     password: "",
+    confirm_password:"",
   };
 
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
@@ -30,7 +32,7 @@ function Signup() {
   return (
     <div>
       <Navbar />
-      <div className="login">
+      <div className="signup d-flex justify-content-center">
         <div className="form-group card m-5 p-3 w-50">
           <form onSubmit={handleSubmit}>
             <span className="display-3 d-flex justify-content-center">Sign up</span>
@@ -98,7 +100,7 @@ function Signup() {
             <input
               type="password"
               name="confirm_password"
-              value={values.password}
+              value={values.confirm_password}
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="Confirm Your Password"

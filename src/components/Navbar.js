@@ -6,7 +6,7 @@ function Navbar() {
       <>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
           <Link
-            to="http://localhost:3000/pagelist"
+            to="/pagelist"
             className="navbar-brand text-white"
           >
             Pagelist
@@ -25,14 +25,14 @@ function Navbar() {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <Link class="nav-link text-white" to="http://localhost:3000/">
+                <Link class="nav-link text-white" to="/">
                   Login
                 </Link>
               </li>
               <li class="nav-item">
                 <Link
                   class="nav-link text-white"
-                  to="http://localhost:3000/signup"
+                  to="/signup"
                 >
                   Sign up
                 </Link>
