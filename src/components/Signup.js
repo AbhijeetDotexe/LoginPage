@@ -75,8 +75,9 @@ function Signup() {
               className="form-control inp_txt m-2 p-2"
               id="email"
             ></input>
-            <label for="dob" className="m-2 p-2 ">Enter Youd DOB:</label>
-            <input type="date" id="dob" name="dob"></input>
+            <label for="dob" className="m-2 p-2 d-flex">Enter Youd DOB:</label>
+            <input type="date" id="dob" name="dob" className="d-flex m-2 p-2">
+            </input>
             {errors.email && touched.email && <p className="error">{errors.email}</p>}
             <label htmlFor="password" className="input-label m-2 p-2">
               Password

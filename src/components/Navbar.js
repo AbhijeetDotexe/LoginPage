@@ -1,13 +1,16 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
       <>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-          <a class="navbar-brand text-white" href="http://localhost:3000/pagelist">
+          <Link
+            to="http://localhost:3000/pagelist"
+            className="navbar-brand text-white"
+          >
             Pagelist
-          </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -22,14 +25,17 @@ function Navbar() {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link text-white" href="http://localhost:3000/">
+                <Link class="nav-link text-white" to="http://localhost:3000/">
                   Login
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="http://localhost:3000/signup">
+                <Link
+                  class="nav-link text-white"
+                  to="http://localhost:3000/signup"
+                >
                   Sign up
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
