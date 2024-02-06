@@ -7,9 +7,15 @@ import Navbar from "./Navbar";
 const schema = Yup.object().shape({
   first_name: Yup.string().required("First Name is required"),
   last_name: Yup.string().required("Last Name is required"),
-  email: Yup.string().required("Email is required to login").email("Invalid Email Format"),
-  password: Yup.string().required("Password is required to sign in").min(8, "Minimum 8 Characters are required for Password"),
-  confirm_password: Yup.string().required("Password is required to sign in").min(8, "Minimum 8 Characters are required for Password"),
+  email: Yup.string()
+    .required("Email is required to login")
+    .email("Invalid Email Format"),
+  password: Yup.string()
+    .required("Password is required to sign in")
+    .min(8, "Minimum 8 Characters are required for Password"),
+  confirm_password: Yup.string()
+    .required("Password is required to sign in")
+    .min(8, "Minimum 8 Characters are required for Password"),
 });
 
 function Signup() {
@@ -18,16 +24,17 @@ function Signup() {
     last_name: "",
     email: "",
     password: "",
-    confirm_password:"",
+    confirm_password: "",
   };
 
-  const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
-    initialValues,
-    validationSchema: schema,
-    onSubmit: (values, action) => {
-      console.log(values);
-    },
-  });
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: schema,
+      onSubmit: (values, action) => {
+        console.log(values);
+      },
+    });
 
   return (
     <div>
@@ -35,7 +42,9 @@ function Signup() {
       <div className="signup d-flex justify-content-center">
         <div className="form-group card m-5 p-3 w-50">
           <form onSubmit={handleSubmit}>
-            <span className="display-3 d-flex justify-content-center">Sign up</span>
+            <span className="display-3 d-flex justify-content-center">
+              Sign up
+            </span>
             <label htmlFor="first_name" className="input-label m-2 p-2">
               First Name
             </label>
@@ -49,7 +58,9 @@ function Signup() {
               onChange={handleChange}
               onBlur={handleBlur}
             ></input>
-            {errors.first_name && touched.first_name && <p className="error">{errors.first_name}</p>}
+            {errors.first_name && touched.first_name && (
+              <p className="error m-2 p-2">{errors.first_name}</p>
+            )}
             <label htmlFor="last_name" className="input-label m-2 p-2">
               Last Name
             </label>
@@ -63,7 +74,9 @@ function Signup() {
               onChange={handleChange}
               onBlur={handleBlur}
             ></input>
-            {errors.last_name && touched.last_name && <p className="error">{errors.last_name}</p>}
+            {errors.last_name && touched.last_name && (
+              <p className="error m-2 p-2">{errors.last_name}</p>
+            )}
             <label htmlFor="email" className="input-label m-2 p-2">
               Email
             </label>
@@ -77,10 +90,9 @@ function Signup() {
               className="form-control inp_txt m-2 p-2"
               id="email"
             ></input>
-            <label for="dob" className="m-2 p-2 d-flex">Enter Youd DOB:</label>
-            <input type="date" id="dob" name="dob" className="d-flex m-2 p-2">
-            </input>
-            {errors.email && touched.email && <p className="error">{errors.email}</p>}
+            {errors.email && touched.email && (
+              <p className="error m-2 p-2">{errors.email}</p>
+            )}
             <label htmlFor="password" className="input-label m-2 p-2">
               Password
             </label>
@@ -107,7 +119,9 @@ function Signup() {
               className="form-control m-2 p-2"
               id="confirm_password"
             ></input>
-            {errors.password && touched.password && <p className="error">{errors.password}</p>}
+            {errors.password && touched.password && (
+              <p className="error m-2 p-2">{errors.password}</p>
+            )}
             <div className="d-flex justify-content-center">
               <button type="submit" className="btn btn-primary">
                 Sign up

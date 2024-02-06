@@ -3,14 +3,14 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./Navbar";
-
+import axios from "axios";
 const schema = Yup.object().shape({
   email: Yup.string()
     .required("Email is required to login")
     .email("Invalid Email Format"),
   password: Yup.string()
     .required("Password is required to sign in")
-    .min(8, "Minimum 8 Characters are required for Password"),
+    .min(4, "Minimum 4 Characters are required for Password"),
 });
 
 function Login() {
@@ -23,7 +23,20 @@ function Login() {
           email: "",
           password: "",
         }}
-        onSubmit={(values) => alert(JSON.stringify(values))}
+        onSubmit={async (values) => {
+          await axios
+            .get("http://localhost:4000/user/login", {
+              params: { email: values.email, password: values.password },
+            })
+            .then((res) => {
+              const user = res.data;
+              alert(user);
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
       >
         {({
           values,
@@ -39,7 +52,9 @@ function Login() {
                 <span className="display-3 d-flex justify-content-center">
                   Login
                 </span>
-                <label className=" d-flex m-2 p-2">Email:</label>
+                <label className=" d-flex m-2 p-2">
+                  <b>Email:</b>
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -50,8 +65,12 @@ function Login() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></input>
-                <p className="error">{errors.email && touched.email && errors.email}</p>
-                <label className="d-flex m-2 p-2">Password</label>
+                <p className="error m-2 p-2">
+                  {errors.email && touched.email && errors.email}
+                </p>
+                <label className="d-flex m-2 p-2">
+                  <b>Password</b>
+                </label>
                 <input
                   type="password"
                   name="password"
@@ -61,7 +80,9 @@ function Login() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></input>
-                <p className="error">{errors.password && touched.password && errors.password}</p>
+                <p className="error m-2 p-2">
+                  {errors.password && touched.password && errors.password}
+                </p>
                 <div className="d-flex justify-content-center ">
                   <button type="submit" className="btn btn-primary">
                     Login
