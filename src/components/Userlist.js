@@ -6,7 +6,7 @@ function Pagelist() {
   const [data, setData] = useState([]);
 
   const res = async () => {
-    const response = await axios.get(`http://localhost:4000/page`);
+    const response = await axios.get(`http://localhost:4000/user`);
     console.log(response.data);
     setData(response.data);
     console.log(data);
@@ -20,12 +20,12 @@ function Pagelist() {
     <>
       <Navbar />
       <div>
-        <h2>Page Data</h2>
+        <h2>User Data</h2>
         <div className="card-deck d-flex justify-content-center">
-          {data.map((page, index) => (
-            <div className="card mb-3  m-3 p-2" key={index}>
+          {data.map((user) => (
+            <div className="card mb-3  m-3 p-2">
               <div className="card-body">
-                <h5 className="card-title">{page.pagetitle}</h5>
+                <h5 className="card-title">{user.username}</h5>
                 <p className="card-text">
                   <strong>Description:</strong> {page.description} <br />
                   <strong>ID:</strong> {page.id}
