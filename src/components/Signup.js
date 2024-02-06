@@ -20,44 +20,17 @@ const schema = Yup.object().shape({
 });
 
 function Signup() {
-  const initialValues = {
-    username: "",
-    fullname: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-  };
-
-  // const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
-  //   useFormik({
-  //     initialValues,
-  //     validationSchema: schema,
-  //     onSubmit: (values) => {
-  //       axios
-  //         .post("http://localhost:4000/user/", {
-  //           username: values.username,
-  //           fullname: values.fullname,
-  //           email: values.email,
-  //           password: values.password,
-  //         })
-  //         .then((res) => {
-  //           alert("success");
-  //           console.log(res);
-  //         })
-  //         .catch((err) => {
-  //           console.log("error: ", err);
-  //         });
-  //     },
-  //   });
-
   return (
     <>
       <Navbar />
       <Formik
         validationSchema={schema}
         initialValues={{
+          username: "",
+          fullname: "",
           email: "",
           password: "",
+          confirm_password: "",
         }}
         onSubmit={(values) => {
           axios

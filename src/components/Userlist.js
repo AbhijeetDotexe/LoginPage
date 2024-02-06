@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function Userlist() {
   const [data, setData] = useState([]);
 
@@ -16,7 +17,6 @@ function Userlist() {
     res();
   }, []);
 
-  function deleteUser() {}
   return (
     <>
       <Navbar />
@@ -42,6 +42,12 @@ function Userlist() {
                   <button
                     type="button"
                     className="btn btn-danger m-1 rounded-2"
+                    onClick={function () {
+                      const id = user._id;
+                      axios
+                        .delete("http://localhost:4000/user/" + id)
+                        .then(console.log(user));
+                    }}
                   >
                     Delete
                   </button>
