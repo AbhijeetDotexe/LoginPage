@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import Navbar from "./Navbar";
 import axios from "axios";
-function Pagelist() {
+function Userlist() {
   const [data, setData] = useState([]);
 
   const res = async () => {
@@ -21,16 +21,14 @@ function Pagelist() {
       <Navbar />
       <div>
         <h2>User Data</h2>
-        <div className="card-deck d-flex justify-content-center">
+        <div className="card-deck d-flex flex-wrap justify-content-center">
           {data.map((user) => (
             <div className="card mb-3  m-3 p-2">
               <div className="card-body">
-                <h5 className="card-title">{user.username}</h5>
+                <h5 className="card-title">{user.fullname}</h5>
                 <p className="card-text">
-                  <strong>Description:</strong> {page.description} <br />
-                  <strong>ID:</strong> {page.id}
-                  <br />
-                  <strong>Content:</strong> {page.content}
+                  <strong>username:</strong> {user.username} <br />
+                  <strong>email:</strong> {user.email}
                   <br />
                 </p>
                 <div className="btn-group" role="group">
@@ -62,4 +60,4 @@ function Pagelist() {
   );
 }
 
-export default Pagelist;
+export default Userlist;

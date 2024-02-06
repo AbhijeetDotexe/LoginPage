@@ -5,12 +5,10 @@ function Navbar() {
     <div>
       <>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-          <Link
-            to="/pagelist"
-            className="navbar-brand text-white"
-          >
+          <Link to="/pagelist" className="navbar-brand text-white">
             Pagelist
           </Link>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -30,11 +28,13 @@ function Navbar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link
-                  class="nav-link text-white"
-                  to="/signup"
-                >
+                <Link class="nav-link text-white" to="/signup">
                   Sign up
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link text-white" to="/userlist">
+                  UserList
                 </Link>
               </li>
             </ul>
