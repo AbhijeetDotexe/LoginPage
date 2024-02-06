@@ -16,6 +16,7 @@ function Userlist() {
     res();
   }, []);
 
+  function deleteUser() {}
   return (
     <>
       <Navbar />
