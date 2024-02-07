@@ -16,6 +16,10 @@ const schema = Yup.object().shape({
     .min(4, "Minimum 4 Characters are required for Password"),
   confirm_password: Yup.string()
     .required("Password is required to sign in")
+    .oneOf(
+      [Yup.ref("password"), null],
+      "Password and Confirm Password should match with each other"
+    )
     .min(4, "Minimum 4 Characters are required for Password"),
 });
 
@@ -137,8 +141,8 @@ function Signup() {
                   className="form-control m-2 p-2"
                   id="confirm_password"
                 ></input>
-                {errors.password && touched.password && (
-                  <p className="error m-2 p-2">{errors.password}</p>
+                {errors.confirm_password && touched.confirm_password && (
+                  <p className="error m-2 p-2">{errors.confirm_password}</p>
                 )}
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-primary">

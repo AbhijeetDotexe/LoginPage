@@ -4,13 +4,13 @@ function Navbar() {
   return (
     <div>
       <>
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-dark">
           <Link to="/pagelist" className="navbar-brand text-white">
             Pagelist
           </Link>
 
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNavDropdown"
@@ -18,22 +18,22 @@ function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <Link class="nav-link text-white" to="/">
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <Link className="nav-link text-white" to="/">
                   Login
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link text-white" to="/signup">
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/signup">
                   Sign up
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link text-white" to="/userlist">
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/userlist">
                   UserList
                 </Link>
               </li>

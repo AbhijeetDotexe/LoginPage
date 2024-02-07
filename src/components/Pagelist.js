@@ -25,7 +25,9 @@ function Pagelist() {
           {data.map((page) => (
             <div className="card mb-3  m-3 p-2">
               <div className="card-body">
-                <h5 className="card-title">{page.pagetitle}</h5>
+                <h5 className="card-title">
+                  <b>{page.pagetitle}</b>
+                </h5>
                 <p className="card-text">
                   <strong>Description:</strong> {page.description} <br />
                   <strong>ID:</strong> {page.id}
@@ -33,7 +35,7 @@ function Pagelist() {
                   <strong>Content:</strong> {page.content}
                   <br />
                 </p>
-                <div className="btn-group" role="group">
+                {/* <div className="btn-group" role="group">
                   <button
                     type="button"
                     className="btn btn-primary m-1 rounded-2"
@@ -52,7 +54,7 @@ function Pagelist() {
                   >
                     Add Page
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
