@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import Navbar from "./Navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Userlist() {
   const [data, setData] = useState([]);
+  const nav = useNavigate();
 
   const res = async () => {
     const response = await axios.get(`http://localhost:4000/user`);
@@ -13,15 +15,22 @@ function Userlist() {
     console.log(data);
   };
 
+  const click = async (user) => {
+    const id = user._id;
+    await axios
+      .delete("http://localhost:4000/user/" + id)
+      .then(console.log(id));
+    res();
+  };
+
   useEffect(() => {
     res();
   }, []);
-
   return (
     <>
       <Navbar />
       <div>
-        <h2>User Data</h2>
+        <h3>User Data</h3>
         <div className="card-deck d-flex flex-wrap justify-content-center">
           {data.map((user) => (
             <div className="card mb-3  m-3 p-2">
@@ -42,11 +51,8 @@ function Userlist() {
                   <button
                     type="button"
                     className="btn btn-danger m-1 rounded-2"
-                    onClick={function () {
-                      const id = user._id;
-                      axios
-                        .delete("http://localhost:4000/user/" + id)
-                        .then(console.log(user));
+                    onClick={() => {
+                      click(user);
                     }}
                   >
                     Delete

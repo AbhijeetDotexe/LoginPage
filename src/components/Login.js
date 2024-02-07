@@ -30,7 +30,7 @@ function Login() {
             })
             .then((res) => {
               const user = res.data;
-              alert(user);
+              alert(res);
               console.log(res);
             })
             .catch((err) => {

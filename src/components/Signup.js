@@ -36,7 +36,7 @@ function Signup() {
           password: "",
           confirm_password: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           axios
             .post("http://localhost:4000/user/", {
               username: values.username,
@@ -51,6 +51,7 @@ function Signup() {
             .catch((err) => {
               console.log("error: ", err);
             });
+          resetForm();
         }}
       >
         {({
@@ -62,12 +63,12 @@ function Signup() {
           handleSubmit,
         }) => (
           <div className="signup d-flex justify-content-center">
-            <div className="form-group card m-5 p-3 w-50">
+            <div className="form-group card m-2 p-2 w-50 h-25">
               <form onSubmit={handleSubmit}>
                 <span className="display-3 d-flex justify-content-center">
                   Sign up
                 </span>
-                <label htmlFor="username" className="input-label m-2 p-2">
+                <label htmlFor="username" className="input-label m-1 p-1">
                   User Name
                 </label>
                 <input
@@ -75,15 +76,15 @@ function Signup() {
                   name="username"
                   value={values.username}
                   placeholder="Enter your User Name"
-                  className="form-control inp_txt m-2 p-2"
+                  className="form-control inp_txt m-1 p-1"
                   id="username"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></input>
                 {errors.username && touched.username && (
-                  <p className="error m-2 p-2">{errors.username}</p>
+                  <p className="error m-1 p-1">{errors.username}</p>
                 )}
-                <label htmlFor="last_name" className="input-label m-2 p-2">
+                <label htmlFor="last_name" className="input-label m-1 p-1">
                   Full Name
                 </label>
                 <input
@@ -91,15 +92,15 @@ function Signup() {
                   name="fullname"
                   value={values.fullname}
                   placeholder="Enter your Full Name"
-                  className="form-control inp_txt m-2 p-2"
+                  className="form-control inp_txt m-1 p-1"
                   id="fullname"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></input>
                 {errors.fullname && touched.fullname && (
-                  <p className="error m-2 p-2">{errors.fullname}</p>
+                  <p className="error m-1 p-1">{errors.fullname}</p>
                 )}
-                <label htmlFor="email" className="input-label m-2 p-2">
+                <label htmlFor="email" className="input-label m-1 p-1">
                   Email
                 </label>
                 <input
@@ -109,13 +110,13 @@ function Signup() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Enter your email id"
-                  className="form-control inp_txt m-2 p-2"
+                  className="form-control inp_txt m-1 p-1"
                   id="email"
                 ></input>
                 {errors.email && touched.email && (
-                  <p className="error m-2 p-2">{errors.email}</p>
+                  <p className="error m-1 p-1">{errors.email}</p>
                 )}
-                <label htmlFor="password" className="input-label m-2 p-2">
+                <label htmlFor="password" className="input-label m-1 p-1">
                   Password
                 </label>
                 <input
@@ -125,10 +126,10 @@ function Signup() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Enter your password"
-                  className="form-control m-2 p-2"
+                  className="form-control m-1 p-1"
                   id="password"
                 ></input>
-                <label htmlFor="password" className="input-label m-2 p-2">
+                <label htmlFor="password" className="input-label m-1 p-1">
                   Confirm Password
                 </label>
                 <input
@@ -138,16 +139,19 @@ function Signup() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Confirm Your Password"
-                  className="form-control m-2 p-2"
+                  className="form-control m-1 p-1"
                   id="confirm_password"
                 ></input>
                 {errors.confirm_password && touched.confirm_password && (
-                  <p className="error m-2 p-2">{errors.confirm_password}</p>
+                  <p className="error m-1 p-1">{errors.confirm_password}</p>
                 )}
                 <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-primary">
                     Sign up
                   </button>
+                </div>
+                <div className="d-flex justify-content-center m-1 p-1">
+                  {/* Already have a account? <link to="/">Login</link> */}
                 </div>
               </form>
             </div>
