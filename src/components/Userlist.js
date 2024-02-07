@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import Navbar from "./Navbar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 function Userlist() {
   const [data, setData] = useState([]);
-  const nav = useNavigate();
 
   const res = async () => {
     const response = await axios.get(`http://localhost:4000/user`);
-    console.log(response.data);
+    // console.log(response.data);
     setData(response.data);
-    console.log(data);
+    // console.log(data);
   };
 
   const click = async (user) => {
@@ -33,7 +30,7 @@ function Userlist() {
         <h3>User Data</h3>
         <div className="card-deck d-flex flex-wrap justify-content-center">
           {data.map((user) => (
-            <div className="card mb-3  m-3 p-2">
+            <div className="card mb-3  m-3 p-2" key={user._id}>
               <div className="card-body">
                 <h5 className="card-title">{user.fullname}</h5>
                 <p className="card-text">
