@@ -22,8 +22,8 @@ function Pagelist() {
       <div>
         <h2>Page Data</h2>
         <div className="card-deck d-flex justify-content-center">
-          {data.map((page, index) => (
-            <div className="card mb-3  m-3 p-2" key={index}>
+          {data.map((page) => (
+            <div className="card mb-3  m-3 p-2">
               <div className="card-body">
                 <h5 className="card-title">{page.pagetitle}</h5>
                 <p className="card-text">
